@@ -1,0 +1,60 @@
+pi@raspberrypi:~ $ sudo ssh pi@141.209.167.235pi@141.209.167.235's password: 
+Linux raspberrypi 4.14.71-v7+ #1145 SMP Fri Sep 21 15:38:35 BST 2018 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Dec  6 04:56:19 2018 from 141.209.167.173
+
+SSH is enabled and the default password for the 'pi' user has not been changed.
+This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+
+pi@raspberrypi:~ $ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/pi/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/pi/.ssh/id_rsa.
+Your public key has been saved in /home/pi/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:T8HKAkQSTA81X8md/CEXlxT1KbEpd87Xqwjzw+fIPk4 pi@raspberrypi
+The key's randomart image is:
++---[RSA 2048]----+
+| o=+=  ..+ ..+++.|
+|  .= o .o.= o.= o|
+|    o .   o= * o.|
+|     . . . .+ = .|
+|      . S .    oo|
+|       . o      o|
+|         ooE   . |
+|          *+o..  |
+|          oB=o   |
++----[SHA256]-----+
+pi@raspberrypi:~ $ cat /home/pi/.ssh/id_rsa.pub | ssh pi@141.209.167.173 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+The authenticity of host '141.209.167.173 (141.209.167.173)' can't be established.
+ECDSA key fingerprint is SHA256:MWHAqNNkJsQ7bKPxsxbO8jur3j8CcsTgDmBOJlK5M9o.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '141.209.167.173' (ECDSA) to the list of known hosts.
+pi@141.209.167.173's password: 
+pi@raspberrypi:~ $ ssh pi@141.209.167.173
+Linux raspberrypi 4.14.79-v7+ #1159 SMP Sun Nov 4 17:50:20 GMT 2018 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Dec  6 05:06:32 2018 from 141.209.167.235
+
+SSH is enabled and the default password for the 'pi' user has not been changed.
+This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+
+pi@raspberrypi:~ $ logout
+Connection to 141.209.167.173 closed.
+pi@raspberrypi:~ $ logout
+Connection to 141.209.167.235 closed.
+pi@raspberrypi:~ $ 
